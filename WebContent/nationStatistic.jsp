@@ -6,7 +6,13 @@
 <meta charset="utf-8">
 </head>
 <body style="height: 100%; margin: 0">
+	<form action="">
+		<input id="year" value="2020"><input> <input
+			id="month" value="01"><input> <input id="day"
+			value="19"><input>
+	</form>
 	<div id="container" style="height: 100%"></div>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript"
 		src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
 	<script type="text/javascript"
@@ -22,188 +28,121 @@
 	<script type="text/javascript">
 		var dom = document.getElementById("container");
 		var myChart = echarts.init(dom);
-		option = null;
-		option = {
-			tooltip : {
-				trigger : 'item'
-			},
-			visualMap : {
-				type : 'piecewise',
-				min : 0,
-				max : 300,
-				left : 'left',
-				top : 'bottom', // 文本，默认为数值文本
-				calculable : true,
-				pieces : [ {
-					value : 0,
-					color : '#fff'
-				}, {
-					min : 1,
-					max : 9,
-					color : 'rgb(255,170,133)'
-				}, {
-					min : 10,
-					max : 99,
-					color : 'rgb(255,123,105)'
-				}, {
-					min : 100,
-					max : 999,
-					color : 'rgb(204,41,41)'
-				}, {
-					min : 1000,
-					max : 9999,
-					color : 'rgb(140,13,13)'
-				}, {
-					min : 10000,
-					color : 'rgb(102,2,8)'
-				} ]
-			},
-			toolbox : {
-				show : true,
-				orient : 'vertical',
-				left : 'right',
-				top : 'center',
-				feature : {
-					mark : {
-						show : true
+		function fillData(data) {
+			var option = null;
+			option = {
+				tooltip : {
+					trigger : 'item',
+					formatter : function(e, t, n) {
+						return (.5 == e.value ? e.name + "：有疑似病例"
+								: e.seriesName + "<br />" + e.name + "："
+										+ (isNaN(e.value) ? 0 : e.value))
+								+ '<br><button class="more" type="button" onclick="">详情</button>';
 					},
-					dataView : {
-						show : true,
-						readOnly : false
-					},
-					restore : {
-						show : true
-					},
-					saveAsImage : {
-						show : true
-					}
-				}
-			},
-
-			series : [ {
-				name : '感染人数',
-				type : 'map',
-				mapType : 'china',
-				roam : false,
-				showLegendSymbol : false,
-				label : {
-					normal : {
-						show : true
-					},
-					emphasis : {
-						show : true
+					//triggerOn: "click",
+					enterable : true
+				},
+				visualMap : {
+					type : 'piecewise',
+					min : 0,
+					max : 300,
+					left : 'left',
+					top : 'bottom', // 文本，默认为数值文本
+					calculable : true,
+					pieces : [ {
+						value : 0,
+						color : '#fff'
+					}, {
+						min : 1,
+						max : 9,
+						color : 'rgb(255,170,133)'
+					}, {
+						min : 10,
+						max : 99,
+						color : 'rgb(255,123,105)'
+					}, {
+						min : 100,
+						max : 999,
+						color : 'rgb(204,41,41)'
+					}, {
+						min : 1000,
+						max : 9999,
+						color : 'rgb(140,13,13)'
+					}, {
+						min : 10000,
+						color : 'rgb(102,2,8)'
+					} ]
+				},
+				toolbox : {
+					show : true,
+					orient : 'vertical',
+					left : 'right',
+					top : 'center',
+					feature : {
+						mark : {
+							show : true
+						},
+						dataView : {
+							show : true,
+							readOnly : false
+						},
+						restore : {
+							show : true
+						},
+						saveAsImage : {
+							show : true
+						}
 					}
 				},
-				data : [ {
-					name : '北京',
-					value : 197
-				}, {
-					name : '天津',
-					value : 45
-				}, {
-					name : '上海',
-					value : 71
-				}, {
-					name : '重庆',
-					value : 234
-				}, {
-					name : '河北',
-					value : 71
-				}, {
-					name : '河南',
-					value : 307
-				}, {
-					name : '云南',
-					value : 44
-				}, {
-					name : '辽宁',
-					value : 38
-				}, {
-					name : '黑龙江',
-					value : 239
-				}, {
-					name : '湖南',
-					value : 281
-				}, {
-					name : '安徽',
-					value : 291
-				}, {
-					name : '山东',
-					value : 409
-				}, {
-					name : '新疆',
-					value : 44
-				}, {
-					name : '江苏',
-					value : 173
-				}, {
-					name : '浙江',
-					value : 421
-				}, {
-					name : '江西',
-					value : 287
-				}, {
-					name : '湖北',
-					value : 45044
-				}, {
-					name : '广西',
-					value : 137
-				}, {
-					name : '甘肃',
-					value : 11
-				}, {
-					name : '山西',
-					value : 43
-				}, {
-					name : '内蒙古',
-					value : 42
-				}, {
-					name : '陕西',
-					value : 69
-				}, {
-					name : '吉林',
-					value : 32
-				}, {
-					name : '福建',
-					value : 109
-				}, {
-					name : '贵州',
-					value : 41
-				}, {
-					name : '广东',
-					value : 546
-				}, {
-					name : '青海',
-					value : 0
-				}, {
-					name : '西藏',
-					value : 0
-				}, {
-					name : '四川',
-					value : 248
-				}, {
-					name : '宁夏',
-					value : 13
-				}, {
-					name : '海南',
-					value : 47
-				}, {
-					name : '台湾',
-					value : 24
-				}, {
-					name : '香港',
-					value : 58
-				}, {
-					name : '澳门',
-					value : 4
-				} ],
-				colorMappingBy : 'value'
-			} ]
-		};
 
-		if (option && typeof option === "object") {
-			myChart.setOption(option, true);
+				series : [ {
+					name : '确诊人数',
+					type : 'map',
+					mapType : 'china',
+					roam : false,
+					showLegendSymbol : false,
+					label : {
+						normal : {
+							show : true
+						},
+						emphasis : {
+							show : true
+						}
+					},
+					data : data,
+					colorMappingBy : 'value'
+				} ]
+			};
+			return option;
 		}
+		function getData() {
+			$.ajax({
+				type : "get",
+				async : true, //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+				url : "test", //请求发送到TestServlet处
+				data : {
+					year : $("#year").val(),
+					month : $("#month").val(),
+					day : $("#day").val()
+				},
+				dataType : "json", //返回数据形式为json
+				success : function(result) {
+					var nationData = result["全国"];
+					var provinceName = result["省名"];
+					var provinceValue = result["值"];
+					var provinceData = new Array();
+					for (var i = 0; i < provinceName.length; i++) {
+						var row = new Object();
+						row.name = provinceName[i];
+						row.value = provinceValue[i];
+						provinceData.push(row);
+					}
+					//document.write(provinceData);
+					myChart.setOption(fillData(provinceData), true);
+				}
+			})
+		}
+		getData();
 	</script>
 </body>
 </html>
