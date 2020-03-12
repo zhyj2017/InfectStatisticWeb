@@ -2,20 +2,29 @@ package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBUtil {
-	static Connection conn;
-	public static Connection getConnection() throws SQLException, ClassNotFoundException {		
+	public static Connection getConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("org.sqlite.JDBC");
-		// 建立一个数据库名zieckey.db的连接，如果不存在就在当前目录下创建之
-		conn = DriverManager.getConnection("jdbc:sqlite:infectDB");
-		return conn;
+		return DriverManager.getConnection("jdbc:sqlite:D:\\java\\javaee\\code 2019\\InfectStatisticWeb\\infect.db");
 	}
-	public static void close() {
+
+	public static void createTable() {
+
+	}
+
+	public static void close(ResultSet rs, PreparedStatement ps, Connection conn) {
 		try {
+			if (rs != null)
+				rs.close();
+			if (ps != null)
+				ps.close();
 			if (conn != null)
 				conn.close();
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
