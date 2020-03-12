@@ -8,4 +8,5 @@ public interface ProvinceDAO {
     void update(Province province);
     void delete(String name,Date date) ;
     Province get(String name,Date date);
+    Province[] getList(Date date);
 }

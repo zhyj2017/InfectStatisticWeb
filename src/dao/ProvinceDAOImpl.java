@@ -4,17 +4,21 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import util.DBUtil;
 import pojo.Province;
 
+import java.util.ArrayList;
+import java.util.List;
 public class ProvinceDAOImpl implements ProvinceDAO {
 
 	@Override
 	public void add(Province province) {
 		// TODO Auto-generated method stub
-		String sql = "insert into user values(? ,? ,? ,? ,? ,? ,? ,?)";
+		String sql = "insert into infectData values(? ,? ,? ,? ,? ,? ,? ,?)";
 		try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
 			ps.setString(1, province.getName());
 			ps.setInt(2, province.getNowIp());
@@ -50,7 +54,9 @@ public class ProvinceDAOImpl implements ProvinceDAO {
 		// TODO Auto-generated method stub
 		String sql = "select * from infectData where name = ? and date = ?";
 		Province temp = new Province();
-		try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
+		try {
+			Connection c = DBUtil.getConnection();
+			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setDate(2, date);
 			ResultSet rs = ps.executeQuery();
@@ -64,6 +70,7 @@ public class ProvinceDAOImpl implements ProvinceDAO {
 				temp.setAllDead(rs.getInt("allDead"));
 				temp.setDate(rs.getDate("date"));
 			}
+			DBUtil.close(rs, ps, c);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e1) {
@@ -71,6 +78,40 @@ public class ProvinceDAOImpl implements ProvinceDAO {
 			e1.printStackTrace();
 		}
 		return temp;
+	}
+
+	@Override
+	public Province[] getList(Date date) {
+		// TODO Auto-generated method stub
+		String sql = "select * from infectData where date = ? ";
+		try {
+			Connection c = DBUtil.getConnection();
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setDate(1, date);
+			ResultSet rs = ps.executeQuery();
+			Province temp;
+			List<Province> list=new ArrayList<Province>();
+			while (rs.next()) {
+				temp = new Province();
+				temp.setName(rs.getString("name"));
+				temp.setNowIp(rs.getInt("nowIp"));
+				temp.setNowSp(rs.getInt("nowSp"));
+				temp.setAllIp(rs.getInt("allIp"));
+				temp.setAllSp(rs.getInt("allSp"));
+				temp.setAllCure(rs.getInt("allCure"));
+				temp.setAllDead(rs.getInt("allDead"));
+				temp.setDate(rs.getDate("date"));
+				list.add(temp);
+			}
+			DBUtil.close(rs, ps, c);
+			return (Province[])list.toArray(new Province[list.size()]);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return null;
 	}
 
 }
