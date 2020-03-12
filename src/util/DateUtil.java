@@ -33,4 +33,23 @@ public class DateUtil {
         String lastDay = sdf.format(calendar.getTime());
         return lastDay;
 	}
+	
+	public static String getNxetday(String param) throws java.text.ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        Date date=null;
+        try {
+            date = sdf.parse(param);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        calendar.setTime(date);
+        int day=calendar.get(Calendar.DATE);
+        //                      此处修改为+1则是获取后一天
+        calendar.set(Calendar.DATE,day+1);
+ 
+        String lastDay = sdf.format(calendar.getTime());
+        return lastDay;
+	}
+	
 }
