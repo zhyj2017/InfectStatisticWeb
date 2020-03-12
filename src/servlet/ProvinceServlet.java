@@ -62,7 +62,7 @@ public class ProvinceServlet extends HttpServlet {
 		List<Integer> provinceValue = new ArrayList<Integer>();
 		List<Integer> nation = new ArrayList<Integer>();
 		String dateString = "";
-		String yesterdayString="";
+		String yesterdayString = "";
 		if (year != null && month != null && day != null && type != null) {
 			if (!year.equals("") && !month.equals("") && !day.equals("")) {
 				System.out.println(year + "-" + month + "-" + day);
@@ -70,28 +70,26 @@ public class ProvinceServlet extends HttpServlet {
 			} else {
 				dateString = "2020-02-02";
 			}
-		}
-		else {
+		} else {
 			dateString = "2020-02-02";
 		}
 		try {
-			yesterdayString=DateUtil.getYesterday(dateString);
+			yesterdayString = DateUtil.getYesterday(dateString);
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
-			if(format.parse(yesterdayString).getTime()<format.parse("2020-01-19").getTime()) {
+			if (format.parse(yesterdayString).getTime() < format.parse("2020-01-19").getTime()) {
 				nation.add(0);
 				nation.add(0);
 				nation.add(0);
 				nation.add(0);
 				nation.add(0);
 				nation.add(0);
-			}
-			else {
-				Date yesterday=new Date(format.parse(yesterdayString).getTime());
-				Province p=provinceDAO.get("全国", yesterday);
+			} else {
+				Date yesterday = new Date(format.parse(yesterdayString).getTime());
+				Province p = provinceDAO.get("全国", yesterday);
 				nation.add(p.getNowIp());
 				nation.add(p.getNowSp());
 				nation.add(p.getAllIp());
@@ -99,14 +97,13 @@ public class ProvinceServlet extends HttpServlet {
 				nation.add(p.getAllCure());
 				nation.add(p.getAlldead());
 			}
-			Province data[] = provinceDAO.getList(new Date(format.parse(dateString).getTime()));
+			Province data[] = provinceDAO.getListByDate(new Date(format.parse(dateString).getTime()));
 			for (Province p : data) {
 				if (!p.getName().equals("全国")) {
 					provinceName.add(p.getName());
-					if(type!=null&&type.equals("now")) {
+					if (type != null && type.equals("now")) {
 						provinceValue.add(p.getNowIp());
-					}
-					else {
+					} else {
 						provinceValue.add(p.getAllIp());
 					}
 				} else {
