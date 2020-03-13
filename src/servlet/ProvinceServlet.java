@@ -63,6 +63,7 @@ public class ProvinceServlet extends HttpServlet {
 		List<Integer> nation = new ArrayList<Integer>();
 		String dateString = "";
 		String yesterdayString = "";
+		//判断日期合法
 		if (year != null && month != null && day != null && type != null) {
 			if (!year.equals("") && !month.equals("") && !day.equals("")) {
 				if (year.compareTo("2020") == 0
@@ -83,6 +84,7 @@ public class ProvinceServlet extends HttpServlet {
 				e1.printStackTrace();
 			}
 			try {
+				//写入日期前一天数据
 				if (format.parse(yesterdayString).getTime() < format.parse("2020-01-19").getTime()) {
 					nation.add(0);
 					nation.add(0);
@@ -110,6 +112,7 @@ public class ProvinceServlet extends HttpServlet {
 							provinceValue.add(p.getAllIp());
 						}
 					} else {
+						//写入当天日期数据
 						nation.add(p.getNowIp());
 						nation.add(p.getNowSp());
 						nation.add(p.getAllIp());
@@ -119,8 +122,10 @@ public class ProvinceServlet extends HttpServlet {
 						map.put("全国", nation);
 					}
 				}
+				//写入map
 				map.put("省名", provinceName);
 				map.put("值", provinceValue);
+				//转换成接送发送
 				JSONObject json = JSONObject.parseObject(JSON.toJSONString(map));
 				out.write(json.toString());
 				out.flush();

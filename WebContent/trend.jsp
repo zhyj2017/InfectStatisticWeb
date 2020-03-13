@@ -8,7 +8,7 @@
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
     var type = "newIp";
-
+    //获取参数数据
     $("#year").attr("value",
         <%=request.getParameter("year")%>
     );
@@ -19,6 +19,7 @@
         <%=request.getParameter("day")%>
     );
     var name ='<%=request.getParameter("name")%>';
+    //判断日期与数据日期的合法
     if ($("#year").val()!="2020"||
         (2==$("#month").val()&&(1<$("#day").val()||2>$("#day").val()))||
         (1==$("#month").val()&&(19<$("#day").val()||31>$("#day").val()))){
@@ -62,17 +63,13 @@
         series : []
     };
 
-    //myChart.showLoading(); //数据加载完之前先显示一段简单的loading动画
-    //myChart.setOption(option);
-    var data = [];
+    var data = [];//省份数据数组
     var newIp = []; //新增确诊数组
     var allIp = []; //累计确诊数组
     var allCure = []; //累计治愈数组
     var allDead = []; //累计死亡数组
-    var dates = [];
-
-
-
+    var dates = [];//1.19-参数日期的数组
+    //显示正负号
     function showSign(param) {
         if (param >= 0) {
             return "+" + param;
@@ -80,6 +77,7 @@
             return param;
         }
     }
+    //以下为三种数据的请求
     function getNewIpData() {
         $.ajax({ //使用JQuery内置的Ajax方法
             type : "get", //post请求方式
@@ -97,6 +95,7 @@
                 //document.write("123");
                 //请求成功时执行该函数内容，result即为服务器返回的json对象
                 if (result != null) {
+                    //解析json
                     newIp = result["newIp"];
                     dates = result["date"];
                     data = result["data"];
@@ -319,9 +318,11 @@
             },
         })
     }
+    //获取标题
     function getTitle() {
         return null
     }
+    //三种趋势图请求事件
     function typeToNewIp() {
         if (type != "newIp") {
             type = "newIp";
@@ -340,6 +341,7 @@
         }
         getAllCDData();
     }
+    //数据请求事件
     function getData() {
         if (type == "newIp") {
             getNewIpData();
@@ -349,6 +351,7 @@
             getAllCDData();
         }
     }
+    //初始化为请求新增确诊
     getNewIpData();
 </script>
 

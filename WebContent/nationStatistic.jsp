@@ -17,6 +17,7 @@
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var type = "now";
+    //设置地图并填充数据
     function fillData(data) {
         var option = null;
         option = {
@@ -36,7 +37,6 @@
                         + $("#day").val()
                         + '">详情</a>';
                 },
-                //triggerOn: "click",
                 enterable : true
             },
             visualMap : {
@@ -44,7 +44,7 @@
                 min : 0,
                 max : 300,
                 left : 'left',
-                top : 'bottom', // 文本，默认为数值文本
+                top : 'bottom', 
                 calculable : true,
                 pieces : [ {
                     value : 0,
@@ -91,6 +91,7 @@
         };
         return option;
     }
+    //显示正负号表示增减
     function showSign(param) {
         if (param >= 0) {
             return "+" + param;
@@ -102,7 +103,7 @@
         $.ajax({
             type : "get",
             async : true, //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-            url : "test", //请求发送到TestServlet处
+            url : "test", //请求发送到ProvinceServlet处
             data : {
                 year : $("#year").val(),
                 month : $("#month").val(),
@@ -111,6 +112,7 @@
             },
             dataType : "json", //返回数据形式为json
             success : function(result) {
+                //解析json
                 var nationData = result["全国"];
                 var provinceName = result["省名"];
                 var provinceValue = result["值"];
@@ -121,6 +123,7 @@
                     row.value = provinceValue[i];
                     provinceData.push(row);
                 }
+                //设置数据区域
                 $(".dataNum1").text(nationData[6]);
                 $(".dataNumYesterday1").text(
                     showSign(nationData[6] - nationData[0]));
@@ -140,6 +143,7 @@
             }
         })
     }
+    //地图类型转换事件
     function typeToAll() {
         if (type == "now") {
             type = "all";

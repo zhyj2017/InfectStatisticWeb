@@ -16,6 +16,7 @@ import java.util.List;
 
 public class ProvinceDAOImpl implements ProvinceDAO {
 
+	//增加
 	@Override
 	public void add(Province province) {
 		// TODO Auto-generated method stub
@@ -50,6 +51,7 @@ public class ProvinceDAOImpl implements ProvinceDAO {
 
 	}
 
+	//获取单个对象
 	@Override
 	public Province get(String name, Date date) {
 		// TODO Auto-generated method stub
@@ -81,6 +83,7 @@ public class ProvinceDAOImpl implements ProvinceDAO {
 		return temp;
 	}
 
+	//通过日期获取对象集
 	@Override
 	public Province[] getListByDate(Date date) {
 		// TODO Auto-generated method stub
@@ -115,6 +118,8 @@ public class ProvinceDAOImpl implements ProvinceDAO {
 		return null;
 	}
 
+
+	//通过名字获取对象集
 	@Override
 	public Province[] getListByName(String name) {
 		// TODO Auto-generated method stub

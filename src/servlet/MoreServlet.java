@@ -65,6 +65,7 @@ public class MoreServlet extends HttpServlet {
 		List<String> dates = new ArrayList<String>();
 		String dateString = "";
 		String yesterdayString = "";
+		//检测数据合法
 		if (year != null && month != null && day != null && type != null && name != null) {
 			if (!year.equals("") && !month.equals("") && !day.equals("")) {
 				if (year.compareTo("2020") == 0
@@ -84,12 +85,14 @@ public class MoreServlet extends HttpServlet {
 				Date today = new Date(format.parse(dateString).getTime());
 				Province data[] = provinceDAO.getListByName(name);
 				Province p = provinceDAO.get(name, new Date(format.parse(dateString).getTime()));
+				//写入当天日期疫情数据
 				province.add(p.getNowIp());
 				province.add(p.getNowSp());
 				province.add(p.getAllIp());
 				province.add(p.getAllSp());
 				province.add(p.getAllCure());
 				province.add(p.getAlldead());
+				//写入前一天疫情数据
 				if (format.parse(yesterdayString).getTime() < format.parse("2020-01-19").getTime()) {
 					province.add(0);
 					province.add(0);
@@ -108,7 +111,9 @@ public class MoreServlet extends HttpServlet {
 				}
 				String tempday = "2020-01-19";
 				for (Province p1 : data) {
+					//提取小于当天的对象
 					if (p1.getDate().getTime() <= today.getTime()) {
+						//将未含有数据的对象数据(0)写入
 						if (format.format(p1.getDate()).compareTo(tempday) > 0) {
 							while (format.format(p1.getDate()).compareTo(tempday) > 0) {
 								dates.add(tempday);
@@ -120,8 +125,10 @@ public class MoreServlet extends HttpServlet {
 							}
 							tempday = "2020-12-31";
 						}
+						//按照类型写入数据
 						if (type.equals("newIp")) {
 							yesterdayString = DateUtil.getYesterday(format.format(p1.getDate()));
+							//写入新增--累计的差值
 							if (format.parse(yesterdayString).getTime() < format.parse("2020-01-19").getTime()) {
 								newIpData.add(p1.getAllIp());
 							} else {
@@ -135,15 +142,18 @@ public class MoreServlet extends HttpServlet {
 							allCureData.add(p1.getAllCure());
 							allDeadData.add(p1.getAlldead());
 						}
+						//写入日期
 						dates.add(format.format(p1.getDate()));
 					}
 				}
+				//存入map
 				map.put("data", province);
 				map.put("allCure", allCureData);
 				map.put("allDead", allDeadData);
 				map.put("allIp", allIpData);
 				map.put("newIp", newIpData);
 				map.put("date", dates);
+				//转换成json发送
 				JSONObject json = JSONObject.parseObject(JSON.toJSONString(map));
 				out.write(json.toString());
 				out.flush();

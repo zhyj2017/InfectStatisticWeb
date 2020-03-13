@@ -27,7 +27,7 @@ public class DateUtil {
         }
         calendar.setTime(date);
         int day=calendar.get(Calendar.DATE);
-        //                      此处修改为+1则是获取后一天
+        //此处修改为+1则是获取后一天
         calendar.set(Calendar.DATE,day-1);
  
         String lastDay = sdf.format(calendar.getTime());
@@ -45,7 +45,7 @@ public class DateUtil {
         }
         calendar.setTime(date);
         int day=calendar.get(Calendar.DATE);
-        //                      此处修改为+1则是获取后一天
+        //此处修改为-1则是获取前一天
         calendar.set(Calendar.DATE,day+1);
  
         String lastDay = sdf.format(calendar.getTime());
