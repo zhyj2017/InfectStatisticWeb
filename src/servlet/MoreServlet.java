@@ -67,8 +67,15 @@ public class MoreServlet extends HttpServlet {
 		String yesterdayString = "";
 		if (year != null && month != null && day != null && type != null && name != null) {
 			if (!year.equals("") && !month.equals("") && !day.equals("")) {
-				System.out.println(year + "-" + month + "-" + day);
-				dateString = year + "-" + month + "-" + day;
+				if (year.compareTo("2020") == 0
+						&& ((Integer.parseInt(month) == 2 && Integer.parseInt(day) > 0 && Integer.parseInt(day) < 3)
+								|| (Integer.parseInt(month) == 1 && Integer.parseInt(day) > 18
+										&& Integer.parseInt(day) < 32))) {
+					dateString = year + "-" + month + "-" + day;
+				}
+				else {
+					dateString = "2020-02-02";
+				}
 			} else {
 				dateString = "2020-02-02";
 			}
@@ -99,7 +106,7 @@ public class MoreServlet extends HttpServlet {
 					province.add(p.getAllCure());
 					province.add(p.getAlldead());
 				}
-				String tempday="2020-01-19";
+				String tempday = "2020-01-19";
 				for (Province p1 : data) {
 					if (p1.getDate().getTime() <= today.getTime()) {
 						if (format.format(p1.getDate()).compareTo(tempday) > 0) {
@@ -111,7 +118,7 @@ public class MoreServlet extends HttpServlet {
 								allIpData.add(0);
 								tempday = DateUtil.getNxetday(tempday);
 							}
-							tempday="2020-12-31";
+							tempday = "2020-12-31";
 						}
 						if (type.equals("newIp")) {
 							yesterdayString = DateUtil.getYesterday(format.format(p1.getDate()));
