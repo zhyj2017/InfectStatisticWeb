@@ -1,4 +1,4 @@
-﻿body {
+body {
     padding-top: 0px;
 }
 
@@ -30,66 +30,58 @@ div.subtitle {
     font-size: 20px;
     text-align: left;
     position: absolute;
-    left: 45px;
+    left: 40px;
     top: 145px;
 }
 
-div.dataArea {
-    width: 270px;
-    height: 165px;
+div.backButton {
     position: absolute;
-    left: 45px;
+    left: 30px;
+    top: 105px;
+    width: 30px;
+    height: 30px;
+}
+
+div.dataArea {
+    width: 280px;
+    height: 100px;
+    position: absolute;
+    left: 40px;
     top: 175px;
     border-radius: 15px;
     border: 1px solid black;
 }
 
 div.data1 {
-    width: 70px;
-    height: 60px;
+    width: 60px;
+    height: 70px;
     position: absolute;
-    left: 15px;
+    left: 8px;
     top: 10px;
 }
 
 div.data2 {
-    width: 70px;
-    height: 60px;
+    width: 60px;
+    height: 70px;
     position: absolute;
-    left: 100px;
+    left: 76px;
     top: 10px;
 }
 
 div.data3 {
-    width: 70px;
-    height: 60px;
+    width: 60px;
+    height: 70px;
     position: absolute;
-    left: 185px;
+    left: 144px;
     top: 10px;
 }
 
 div.data4 {
-    width: 70px;
-    height: 60px;
+    width: 60px;
+    height: 70px;
     position: absolute;
-    left: 15px;
-    top: 75px;
-}
-
-div.data5 {
-    width: 70px;
-    height: 60px;
-    position: absolute;
-    left: 40px;
-    top: 75px;
-}
-
-div.data6 {
-    width: 70px;
-    height: 60px;
-    position: absolute;
-    left: 160px;
-    top: 75px;
+    left: 212px;
+    top: 10px;
 }
 
 div.dataName {
@@ -103,7 +95,7 @@ div.yesterday {
     text-align: left;
     font-family: "宋体";
     font-size: 12px;
-    width: 30px;
+    width: 25px;
 }
 
 div.dataNum1 {
@@ -121,7 +113,7 @@ div.dataNumYesterday1 {
     font-size: 12px;
     font-weight: bold;
     color: #AB32D4;
-    width: 40px;
+    width: 35px;
 }
 
 div.dataNum2 {
@@ -129,7 +121,7 @@ div.dataNum2 {
     font-family: "黑体";
     font-size: 20px;
     font-weight: bold;
-    color: #E69C3A;
+    color: #CE0505;
 }
 
 div.dataNumYesterday2 {
@@ -138,8 +130,8 @@ div.dataNumYesterday2 {
     font-family: "黑体";
     font-size: 12px;
     font-weight: bold;
-    color: #E69C3A;
-    width: 40px;
+    color: #CE0505;
+    width: 35px;
 }
 
 div.dataNum3 {
@@ -147,7 +139,7 @@ div.dataNum3 {
     font-family: "黑体";
     font-size: 20px;
     font-weight: bold;
-    color: #0319F0;
+    color: #17B9B9;
 }
 
 div.dataNumYesterday3 {
@@ -156,8 +148,8 @@ div.dataNumYesterday3 {
     font-family: "黑体";
     font-size: 12px;
     font-weight: bold;
-    color: #0319F0;
-    width: 40px;
+    color: #17B9B9;
+    width: 35px;
 }
 
 div.dataNum4 {
@@ -165,7 +157,7 @@ div.dataNum4 {
     font-family: "黑体";
     font-size: 20px;
     font-weight: bold;
-    color: #CE0505;
+    color: #BBA7A7;
 }
 
 div.dataNumYesterday4 {
@@ -174,51 +166,15 @@ div.dataNumYesterday4 {
     font-family: "黑体";
     font-size: 12px;
     font-weight: bold;
-    color: #CE0505;
-    width: 40px;
-}
-
-div.dataNum5 {
-    text-align: center;
-    font-family: "黑体";
-    font-size: 20px;
-    font-weight: bold;
-    color: #17B9B9;
-}
-
-div.dataNumYesterday5 {
-    float: left;
-    text-align: left;
-    font-family: "黑体";
-    font-size: 12px;
-    font-weight: bold;
-    color: #17B9B9;
-    width: 40px;
-}
-
-div.dataNum6 {
-    text-align: center;
-    font-family: "黑体";
-    font-size: 20px;
-    font-weight: bold;
     color: #BBA7A7;
-}
-
-div.dataNumYesterday6 {
-    float: left;
-    text-align: left;
-    font-family: "黑体";
-    font-size: 12px;
-    font-weight: bold;
-    color: #BBA7A7;
-    width: 40px;
+    width: 35px;
 }
 
 div.timeDiv {
     width: 280px;
     height: 30px;
     position: absolute;
-    top: 135px;
+    top: 70px;
     left: 8px;
 }
 
@@ -277,11 +233,6 @@ div.dayInput input {
     height: 20px;
 }
 
-div.confirmButton button {
-    width: 50px;
-    height: 20px;
-}
-
 div.confirmDiv {
     width: 40px;
     height: 20px;
@@ -293,91 +244,49 @@ div.confirmDiv {
     border-radius: 3px;
 }
 
-div.confirm {
+div.chartButton {
     position: absolute;
-    width: 270px;
+    left: 40px;
+    top: 280px;
+    width: 280px;
     height: 40px;
-    left: 45px;
-    top: 380px;
 }
 
-div.now {
-    float: left;
-    width: 135px;
-    height: 20px;
-    text-align: center;
-    font-family: "黑体";
-    font-weight: bold;
+div.newConfirm {
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    left: 8px;
+    border-radius: 10px;
+    background: #F1B4B4;
+    color: white;
+    font-family: 黑体;
     font-size: 16px;
-    background: #F78907;
-    color: #CCCCCC;
+    text-align: center;
 }
 
-div.accumulated {
-    float: left;
-    width: 135px;
-    height: 20px;
-    text-align: center;
-    font-family: "黑体";
-    font-weight: bold;
+div.accumulatedConfirm {
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    left: 96px;
+    border-radius: 10px;
+    background: #F1B4B4;
+    color: white;
+    font-family: 黑体;
     font-size: 16px;
-    background: #CCCCCC;
-    color: #F78907;
-}
-
-div.legend {
-    position: absolute;
-    top: 570px;
-    left: 25px;
-    width: 120px;
-    height: 60px;
-    z-index: -2;
-}
-
-div.news {
-    position: absolute;
-    top: 345px;
-    left: 30px;
-    width: 80px;
-    height: 25px;
-    font-family: 黑体;
-    font-size: 18px;
-    font-weight: bold;
     text-align: center;
-    color: white;
-    background: #E6573A;
-    border-radius: 10px;
-    padding-top: 5px;
 }
 
-div.science {
-    position: absolute;
-    top: 345px;
-    left: 140px;
+div.accumulatedCureDead {
     width: 80px;
-    height: 25px;
-    font-family: 黑体;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    background: #E3CE0D;
-    border-radius: 10px;
-    padding-top: 5px;
-}
-
-div.appointment {
+    height: 40px;
     position: absolute;
-    top: 345px;
-    left: 250px;
-    width: 80px;
-    height: 25px;
-    font-family: 黑体;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    background: #09C1EC;
+    left: 184px;
     border-radius: 10px;
-    padding-top: 5px;
+    background: #F1B4B4;
+    color: white;
+    font-family: 黑体;
+    font-size: 16px;
+    text-align: center;
 }
