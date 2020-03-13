@@ -282,12 +282,23 @@ div.confirmButton button {
     height: 20px;
 }
 
+div.confirmDiv {
+    width: 40px;
+    height: 20px;
+    background-color: #e6b900;
+    color: white;
+    font-family: 黑体;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
 div.confirm {
     position: absolute;
     width: 270px;
     height: 40px;
     left: 45px;
-    top: 345px;
+    top: 380px;
 }
 
 div.now {
@@ -312,4 +323,61 @@ div.accumulated {
     font-size: 16px;
     background: #CCCCCC;
     color: #F78907;
+}
+
+div.legend {
+    position: absolute;
+    top: 570px;
+    left: 25px;
+    width: 120px;
+    height: 60px;
+    z-index: -2;
+}
+
+div.news {
+    position: absolute;
+    top: 345px;
+    left: 30px;
+    width: 80px;
+    height: 25px;
+    font-family: 黑体;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: #E6573A;
+    border-radius: 10px;
+    padding-top: 5px;
+}
+
+div.science {
+    position: absolute;
+    top: 345px;
+    left: 140px;
+    width: 80px;
+    height: 25px;
+    font-family: 黑体;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: #E3CE0D;
+    border-radius: 10px;
+    padding-top: 5px;
+}
+
+div.appointment {
+    position: absolute;
+    top: 345px;
+    left: 250px;
+    width: 80px;
+    height: 25px;
+    font-family: 黑体;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: #09C1EC;
+    border-radius: 10px;
+    padding-top: 5px;
 }
