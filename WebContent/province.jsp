@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div>
-		<div class="phoneDiv" "position:static">
+		<div class="phoneDiv""position:static">
 			<div class="backButton" onclick="window.open('index.jsp','_self')">
 				<img src="img/back.png">
 			</div>
@@ -22,6 +22,8 @@
 			<div class="subtitle">
 				湖北
 				<!--导入数据-->
+				<br>
+				
 			</div>
 			<div class="dataArea">
 				<div class="data1">
@@ -84,19 +86,20 @@
 							<input id="day" name="day" type="text">日
 						</div>
 						<div class="confirmButton">
-							<button type="submit">确认</button>
+
+							<div id="jqbtn" onclick="getData()"
+								style="width: 30px; height: 20px; background-color: #e6b900; border: 0px; border-radius: 3px;">提交</div>
 						</div>
-					</form>
 				</div>
 			</div>
 			<div class="chartButton">
-				<div class="newConfirm">
+				<div class="newConfirm" onclick="typeToNewIp()">
 					新增<br>确诊趋势
 				</div>
-				<div class="accumulatedConfirm">
+				<div class="accumulatedConfirm" onclick="typeToAllIp()">
 					累计<br>确诊趋势
 				</div>
-				<div class="accumulatedCureDead">
+				<div class="accumulatedCureDead" onclick="typeToAllCD()">
 					累计<br>治愈/死亡
 				</div>
 			</div>

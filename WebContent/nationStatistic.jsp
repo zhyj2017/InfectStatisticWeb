@@ -29,7 +29,7 @@
 							+ (isNaN(e.value) ? 0 : e.value))
 							+ '<br><a class="more" href="province.jsp?name='
 							+ e.name
-							+ ' &year='
+							+ '&year='
 							+ $("#year").val()
 							+ '&month='
 							+ $("#month").val()
@@ -165,14 +165,14 @@
 	function typeToAll() {
 		if (type == "now") {
 			type = "all";
-			getData();
 		}
+		getData();
 	}
 	function typeToNow() {
 		if (type == "all") {
 			type = "now";
-			getData();
 		}
+		getData();
 	}
 	getData();
 </script>
