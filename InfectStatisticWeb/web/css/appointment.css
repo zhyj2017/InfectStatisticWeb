@@ -1,0 +1,146 @@
+body {
+    padding-top: 0px;
+}
+
+div.phoneDiv {
+    width: 360px;
+    height: 725px;
+    position: fixed;
+    left: 50%;
+    margin-left: -180px;
+    background: url("/img/phoneFrame.png") ;
+}
+
+div.title {
+    width: 160px;
+    height: 30px;
+    font-family: "楷体";
+    font-size: 22px;
+    text-align: center;
+    position: absolute;
+    left: 95px;
+    top: 108px;
+}
+
+div.backButton {
+    position: absolute;
+    left: 30px;
+    top: 105px;
+    width: 30px;
+    height: 30px;
+}
+
+div.informationForm {
+    position: absolute;
+    top: 160px;
+    left: 45px;
+    font-family: serif;
+    font-size: 20px;
+    width: 270px;
+    height: 470px;
+}
+
+div.informationForm form {
+    width: 270px;
+    height: 470px;
+}
+
+div.name {
+    position: absolute;
+    top: 0px;
+    font-weight: bold;
+    width: 270px;
+    height: 60px;
+}
+
+div.name input {
+    position: absolute;
+    top: 30px;
+    font-size: 20px;
+    height: 25px;
+    width: 270px;
+}
+
+div.identity {
+    position: absolute;
+    top: 80px;
+    font-weight: bold;
+    width: 270px;
+    height: 60px;
+}
+
+div.identity input {
+    position: absolute;
+    top: 30px;
+    font-size: 20px;
+    height: 25px;
+    width: 270px;
+}
+
+div.mobile {
+    position: absolute;
+    top: 160px;
+    font-weight: bold;
+    width: 270px;
+    height: 60px;
+}
+
+div.mobile input {
+    position: absolute;
+    top: 30px;
+    font-size: 20px;
+    height: 25px;
+    width: 270px;
+}
+
+div.time {
+    position: absolute;
+    top: 240px;
+    font-weight: bold;
+    width: 270px;
+    height: 60px;
+}
+
+div.time select {
+    position: absolute;
+    top: 30px;
+    font-size: 18px;
+    height: 25px;
+    width: 270px;
+    font-weight: normal;
+}
+
+div.place {
+    position: absolute;
+    top: 320px;
+    font-weight: bold;
+    width: 270px;
+    height: 60px;
+}
+
+div.place select {
+    position: absolute;
+    top: 30px;
+    font-size: 18px;
+    height: 25px;
+    width: 270px;
+    font-weight: normal;
+}
+
+div.submit {
+    position: absolute;
+    top: 410px;
+    font-weight: bold;
+    width: 270px;
+    height: 60px;
+    text-align: center;
+}
+
+div.submit button {
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+    background: #17B9B9;
+    border-radius: 10px;
+}
