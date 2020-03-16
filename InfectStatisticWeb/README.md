@@ -5,10 +5,10 @@
 该项目通过web技术直观地反映了全国和各省份的疫情情况。
 
 * 开发工具  
-IDEA
+IDEA。
 
 * 如何运行  
-首先在DBUtil.java中配置好本地数据库路径，第一次运行writeDateBase.java创建数据库表，第二次运行读取指定路径下所有疫情日志文件，将数据保存至数据库中。配置Tomcat服务器后运行index.jsp即可使用。
+首先在DBUtil.java中配置好本地数据库路径(使用绝对路径)，第一次运行writeDateBase.java创建数据库表，第二次运行读取指定路径下所有疫情日志文件，将数据保存至数据库中。配置Tomcat服务器后运行index.jsp即可使用。
 
 * 功能简介
     1. 实现通过地图的形式来直观显示疫情的大致分布情况，还可以查看具体省份的疫情统计情况。
@@ -26,3 +26,4 @@ IDEA
 
 * 博客链接  
 [https://www.cnblogs.com/Dreamer2020/p/12484768.html](https://www.cnblogs.com/Dreamer2020/p/12484768.html)
+[https://www.cnblogs.com/wjchen/p/12494512.html](https://www.cnblogs.com/wjchen/p/12494512.html)
