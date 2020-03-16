@@ -8,7 +8,7 @@
 eclipse（该项目在eclipse运行时存在背景图像无法显示的bug，建议使用IDEA运行，IDEA的本次作业项目在子目录InfectStatisticWeb下）。
 
 * 如何运行  
-首先在DBUtil.java中配置好本地数据库路径，第一次运行writeDateBase.java创建数据库表，第二次运行读取指定路径下所有疫情日志文件，将数据保存至数据库中。配置Tomcat服务器后运行index.jsp即可使用。
+首先在DBUtil.java中配置好本地数据库路径(使用绝对路径)，第一次运行writeDateBase.java创建数据库表，第二次运行读取指定路径下所有疫情日志文件，将数据保存至数据库中。配置Tomcat服务器后运行index.jsp即可使用。
 
 * 功能简介
     1. 实现通过地图的形式来直观显示疫情的大致分布情况，还可以查看具体省份的疫情统计情况。
@@ -26,3 +26,4 @@ eclipse（该项目在eclipse运行时存在背景图像无法显示的bug，建
 
 * 博客链接  
 [https://www.cnblogs.com/Dreamer2020/p/12484768.html](https://www.cnblogs.com/Dreamer2020/p/12484768.html)
+[https://www.cnblogs.com/wjchen/p/12494512.html](https://www.cnblogs.com/wjchen/p/12494512.html)
